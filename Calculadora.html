@@ -2,77 +2,35 @@
 <html>
     <meta charset="utf-8>">
     <head>
-        <script>
-            var n1, n2, op, result;
-            var mensagens = new Object();
-                mensagens.segsomanum = "Digite o valor para somar!";
-                mensagens.faltanumsom = "Voce nao informou um numero para somar!";
-            function reconheceButton (x) {
-                var telaParte, montaTela;
-                telaParte = document.getElementById('telaA').innerHTML;
-
-                if (isNaN(telaParte)) {
-                    telaParte = x;
-                    document.getElementById("telaA").innerHTML = telaParte;
-                    montaTela = 0;
-                } else {
-                    montaTela = document.getElementById('telaA').innerHTML;
-                    telaParte = x;
-                    montaTela = montaTela + telaParte;
-                    document.getElementById("telaA").innerHTML = montaTela;
-                    montaTela = 0;
-                    telaParte = 0;
-                }
-            }
-            function operador(ope){
-
-                n1 = document.getElementById("telaA").innerHTML;
-                if (isNaN(n1)) {
-                    document.getElementById('telaA').innerHTML = mensagens.faltanumsom;
-                    return false;
-                } else {
-                    document.getElementById("telaA").innerHTML = mensagens.segsomanum;
-                    if(ope=="+"){
-                        op = '+';
-                    }
-                    return n1, op;
-                }   
-            }
-            function resultado(){
-
-                if (isNaN(n1)) {
-                    document.getElementById('telaA').innerHTML = mensagens.faltanumsom;
-                    return false;
-                } else if (op=="+") {
-                    n2 = document.getElementById("telaA").innerHTML;
-                    result = parseInt(n1,10) + parseInt(n2,10);
-                    document.getElementById("telaA").innerHTML = result;
-                }     
-            }
-        </script>
+        <script type="text/javascript" src="regras.js"></script>
+        <link href="styles.css" rel="stylesheet" >
     </head>
-    <body">
-        <main">
-            <h2>Simples calculadora</h2>
+    <body>
+        <main>
+            <div id="front">
+                <h2>Calculadora Simples</h2>
+            </div>
             <div id="portraid">
                 <p id="telaA">Olaaa!</p>
             </div>
-            <button type="submit" id="1" onclick="reconheceButton(1);return false;">1</button>
-            <button type="submit" id="2" onclick="reconheceButton(2);return false;">2</button>
-            <button type="submit" id="3" onclick="reconheceButton(3);return false;">3</button>
-            <button type="submit" id="mais" onclick="operador('+');return false;">+</button>
-            <p><button type="submit" id="4" onclick="reconheceButton(4);return false;">4</button>
-            <button type="submit" id="5" onclick="reconheceButton(5);return false;">5</button>
-            <button type="submit" id="6" onclick="reconheceButton(6);return false;">6</button>
-            <button type="submit" id="menos">-</button>
-            <p><button type="submit" id="7" onclick="reconheceButton(7);return false;">7</button>
-            <button type="submit" id="8" onclick="reconheceButton(8);return false;">8</button>
-            <button type="submit" id="9" onclick="reconheceButton(9);return false;">9</button>
-            <button type="submit" id="vezes">*</button>
-            <p><button type="submit" id="0" onclick="reconheceButton(0);return false;">0</button>
-            <button type="submit" id="dividir">/</button>
-            <button type="submit" id="AC">AC</button>
-            <p><button type="submit" id="resu" onclick="resultado()">=</button></p>
+            <div id="allbutt">
+                <button type="submit" class="numer" id="1" onclick="reconheceButton(1);return false;">1</button>
+                <button type="submit" class="numer"  id="2" onclick="reconheceButton(2);return false;">2</button>
+                <button type="submit" class="numer"  id="3" onclick="reconheceButton(3);return false;">3</button>
+                <button type="submit" class="numer"  id="mais" onclick="operador('+');return false;">+</button>
+                <p><button type="submit" id="4" onclick="reconheceButton(4);return false;">4</button>
+                <button type="submit" class="numer"  id="5" onclick="reconheceButton(5);return false;">5</button>
+                <button type="submit" class="numer"  id="6" onclick="reconheceButton(6);return false;">6</button>
+                <button type="submit" class="numer"  id="menos" onclick="operador('-');return false;">-</button>
+                <p><button type="submit" id="7" onclick="reconheceButton(7);return false;">7</button>
+                <button type="submit" class="numer"  id="8" onclick="reconheceButton(8);return false;">8</button>
+                <button type="submit" class="numer"  id="9" onclick="reconheceButton(9);return false;">9</button>
+                <button type="submit" class="numer"  id="vezes" onclick="operador('*');return false;">*</button>
+                <p><button type="submit" id="0" onclick="reconheceButton(0);return false;">0</button>
+                <button type="submit" class="numer"  id="dividir" onclick="operador('/');return false;">/</button>
+                <button type="submit" class="numer"  id="AC" onclick="reconheceButton('del');return false;">AC</button>
+                <p><button type="submit" id="resu" onclick="resultado()">=</button></p>
+            </div>
         </main>
 
     </body>
